@@ -1,10 +1,10 @@
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
-import environ
+import environ, os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, True))
-environ.Env.read_env(BASE_DIR / ".env")
+environ.Env.read_env(env_file=os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
