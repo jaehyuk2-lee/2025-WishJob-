@@ -1,7 +1,66 @@
 {% extends "base.html" %}
+
 {% block content %}
   <div class="container">
     <h1>메인페이지</h1>
-    <a class="btn btn-primary" href="{% url 'common:logout' %}">로그아웃</a>
+
+    <div class="mb-3">
+      <a href="?floor=1&day={{ day }}" class="btn {% if floor == 1 %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        1층
+      </a>
+      <a href="?floor=2&day={{ day }}" class="btn {% if floor == 2 %}btn-primary{% else %}btn-outline-primary{% endif %}">
+        2층
+      </a>
+    </div>
+
+    <div class="mb-3">
+      <a href="?floor={{ floor }}&day=1" class="btn {% if day == 1 %}btn-success{% else %}btn-outline-success{% endif %}">
+        1일차
+      </a>
+      <a href="?floor={{ floor }}&day=2" class="btn {% if day == 2 %}btn-success{% else %}btn-outline-success{% endif %}">
+        2일차
+      </a>
+      <a href="?floor={{ floor }}&day=3" class="btn {% if day == 3 %}btn-success{% else %}btn-outline-success{% endif %}">
+        3일차
+      </a>
+    </div>
+
+    <div class="card p-5">
+      <div class="row gap-5">
+        <div class="col-md-3">
+          <div class="card p-4 text-center">
+            {% if floor == 1 %}101{% else %}201{% endif %}
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-4 text-center">
+            {% if floor == 1 %}102{% else %}202{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 gap-5">
+        <div class="col-md-3">
+          <div class="card p-4 text-center">
+            {% if floor == 1 %}103{% else %}203{% endif %}
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card p-4 text-center">
+            {% if floor == 1 %}104{% else %}204{% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-3 gap-5">
+        <div class="col-md-3">
+          <div class="card p-4 text-center">
+            {% if floor == 1 %}105{% else %}205{% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a class="btn btn-primary mt-3" href="{% url 'common:logout' %}">로그아웃</a>
   </div>
 {% endblock content %}
